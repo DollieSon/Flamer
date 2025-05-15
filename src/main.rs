@@ -15,8 +15,12 @@ macro_rules! str_to_arr {
 }
 
 fn main() {
-    // let args:Vec<String> = env::args().collect();
-    // let iter = args.iter();
+    let args:Vec<String> = env::args().collect();
+    let mut iter = args.iter();
+    iter.next().unwrap();
+    let name1 = iter.next().expect("Name 1 not provided");
+    let name2 = iter.next().expect("Name 2 not provided");
+    println!("Names : {} and {}",name1,name2);
     let meanings:Vec<String> = vec![
         "Friends".to_string(),
         "Lovers".to_string(),
@@ -25,10 +29,9 @@ fn main() {
         "Enemies".to_string(),
         "Siblings".to_string(),
     ];
-    let name1 = "Ray Anthony Dollison".to_string();
-    let name2 = "Ray Anthony Dollison".to_string();
-    let res = flame(&name1, &name2) as usize % meanings.len();
-    println!("{}",meanings[res]);
+    let res = flame(name1, name2) as usize % meanings.len();
+    println!("Flame Result : {res}");
+    println!("{} and {} are {}",name1,name2,meanings[res]);
 }
 
 pub fn flame(name_1:&String,name_2:&String)-> i32{
