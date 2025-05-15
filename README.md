@@ -14,7 +14,7 @@ Flamer.exe "Timothay Chalamai" "Rey Anthony"
 
 ## Development
 requirements:   
-\t rust and cargo
+	rust and cargo
 
 1. clone project.
 2. run 
